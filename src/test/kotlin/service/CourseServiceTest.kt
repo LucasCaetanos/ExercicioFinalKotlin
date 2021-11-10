@@ -7,12 +7,13 @@ import org.junit.Assert.*
 
 class CourseServiceTest {
 
-    val course = Course("Luc987","Analise de sistemas",222, module = null)
+    var Course = Course("abcd","Kotlin",20,module = null)
+    var CourseService = CourseService()
 
     @Test
-    fun registerCourse() {
-        val courses: MutableMap<String, Course> = HashMap()
-        courses[course.code] = course
-        assertEquals(course.name, courses[course.code]?.name)
+    fun getCourse(){
+        CourseService.registerCourse(Course)
+        assertEquals(Course, CourseService.getCourse("abcd"))
     }
+
 }
